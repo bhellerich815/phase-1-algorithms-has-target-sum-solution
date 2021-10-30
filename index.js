@@ -1,5 +1,11 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = new Set(); // initialize an empty Set
+  for (const number of array) {
+    const complement = target - number;
+    if (seenNumbers.has(complement)) return true; // .has returns trye if the Set includes the complement
+    seenNumbers.add(number); // .add adds the number to the Set
+  }
+  return false;
 }
 
 /* 
